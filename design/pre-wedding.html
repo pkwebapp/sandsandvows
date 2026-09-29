@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pre-Wedding Photoshoot in Goa · Sands & Vows</title>
+<meta name="description" content="Pre-wedding photoshoots in Goa planned end to end: beaches, cliffs, Fontainhas, villas and monsoon greenery, with timing, outfits, make-up, transport, drone and film.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Figtree:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/sv.css">
+<style>
+  .moods { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; }
+  .mood-view { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--s-6); align-items: end; }
+  .mood-view .media { aspect-ratio: 3 / 2; }
+  .mood-view .media img { transition: opacity var(--t-mid) var(--ease); }
+  .mood-view h3 { font-family: var(--serif); font-size: var(--t-2xl); font-weight: 500; line-height: 1.05; }
+  .mood-view dl { display: grid; grid-template-columns: auto 1fr; gap: 10px 20px; margin: 20px 0 0; border-top: 1px solid var(--line-dk); padding-top: 20px; font-size: 15px; }
+  .mood-view dt { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--stone-lt); padding-top: 3px; }
+  .mood-view dd { margin: 0; }
+  .timeline { display: grid; grid-template-columns: repeat(6, minmax(0,1fr)); border-top: 1px solid var(--line); position: relative; }
+  .timeline li { padding: 22px 16px 0 0; display: grid; gap: 6px; align-content: start; position: relative; }
+  .timeline li::before { content: ""; position: absolute; top: -5px; left: 0; width: 9px; height: 9px; border-radius: 50%; background: var(--shell); border: 1px solid var(--ink); }
+  .timeline li.gold::before { background: var(--amber); border-color: var(--amber); }
+  .timeline time { font-family: var(--serif); font-size: 28px; font-weight: 500; font-variant-numeric: lining-nums; }
+  .timeline span { font-size: 14.5px; color: var(--stone); }
+  .pw-pkgs { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: var(--s-5); }
+  .pw-pkg { display: grid; gap: 12px; align-content: start; padding-top: 22px; border-top: 1px solid var(--ink); }
+  .pw-pkg h3 { font-family: var(--serif); font-size: 30px; font-weight: 500; }
+  .pw-pkg .p { font-family: var(--serif); font-size: 38px; font-weight: 500; line-height: 1; }
+  .pw-pkg p.caption { max-width: 34ch; }
+  @media (max-width: 860px) {
+    .moods { flex-wrap: nowrap; overflow-x: auto; margin-inline: calc(var(--gutter) * -1); padding-inline: var(--gutter); }
+    .moods .chip { flex: none; }
+    .mood-view { grid-template-columns: 1fr; }
+    .mood-view .media { aspect-ratio: 4 / 5; margin-inline: calc(var(--gutter) * -1); }
+    .timeline { grid-template-columns: 1fr; border-top: 0; border-left: 1px solid var(--line); margin-left: 5px; }
+    .timeline li { padding: 0 0 22px 22px; }
+    .timeline li::before { top: 10px; left: -5px; }
+    .pw-pkgs { grid-template-columns: 1fr; gap: 36px; }
+  }
+</style>
+</head>
+<body data-page="prewed">
+<main id="main">
+
+<section class="hero short" aria-label="Pre-wedding in Goa">
+  <div class="slides" aria-hidden="true"><figure class="on"><img src="assets/img/prewed-resort.jpg" alt="" fetchpriority="high"></figure></div>
+  <div class="hero-inner"><div class="wrap grid-12">
+    <div style="grid-column:1/span 8;display:grid;gap:20px">
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="home.html">Home</a><span>/</span><span>Pre-Weddings</span></nav>
+      <h1 class="display">Pre-wedding shoots, <em>with Goa as your set.</em></h1>
+      <p class="lead">You bring the two of you. We plan the places, the timing, the outfits and the route between them.</p>
+      <div class="ctas"><a class="btn" href="availability.html">Plan your pre-wedding <span class="arr">→</span></a><a class="link" style="color:#fbf6ee" href="#moods">Choose your Goa <span class="arr">→</span></a></div>
+    </div>
+    <div class="hero-meta"><span class="stamp">Villa courtyard · Assagao <i>5:40 pm</i></span></div>
+  </div></div>
+</section>
+
+<!-- Interactive: pick a mood, see the place, the light and the plan -->
+<section id="moods" class="section g-night" aria-labelledby="mh">
+  <div class="wrap">
+    <div class="stack" style="margin-bottom:36px"><span class="eyebrow">Choose your Goa</span><h2 id="mh" class="h2">Which Goa <em>feels like you?</em></h2></div>
+    <div class="moods" data-group role="group" aria-label="Pre-wedding moods">
+      <button class="chip" type="button" aria-pressed="true" data-v="0">Beaches</button>
+      <button class="chip" type="button" aria-pressed="false" data-v="1">Cliffs &amp; forts</button>
+      <button class="chip" type="button" aria-pressed="false" data-v="2">Portuguese streets</button>
+      <button class="chip" type="button" aria-pressed="false" data-v="3">Greenery</button>
+      <button class="chip" type="button" aria-pressed="false" data-v="4">Resorts &amp; villas</button>
+      <button class="chip" type="button" aria-pressed="false" data-v="5">Monsoon</button>
+    </div>
+    <div class="mood-view" aria-live="polite">
+      <div class="media"><img id="mood-img" src="assets/img/concept-shore-walk.jpg" alt="Couple walking on the beach at sunset"></div>
+      <div>
+        <p class="stamp" id="mood-stamp" style="color:var(--sand)">Morjim · Ashwem <i>North Goa</i></p>
+        <h3 id="mood-title" style="margin-top:16px">Barefoot on an empty beach at sunset.</h3>
+        <dl>
+          <dt>Best time</dt><dd id="mood-time">Last 45 minutes before sunset</dd>
+          <dt>Months</dt><dd id="mood-months">October to May</dd>
+          <dt>Wear</dt><dd id="mood-wear">Flowing fabrics, ivory, pastels, no heels</dd>
+          <dt>Pairs with</dt><dd id="mood-pair">A clifftop stop at Vagator</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Planner: "you don't need to know Goa" -->
+<section class="section g-shell" aria-labelledby="ph">
+  <div class="wrap split" style="align-items:start">
+    <div class="l stack">
+      <span class="tag prewed">What we plan for you</span>
+      <h2 id="ph" class="h2">You don't need to know Goa. <em>We do.</em></h2>
+      <p class="muted body">Send us your dates and a few photos you love. You'll get a shoot plan with places, times, looks and travel, on one page.</p>
+    </div>
+    <ul class="r plan-list" style="grid-column:7/-1">
+      <li>Two or three locations</li><li>Permissions where needed</li><li>Sunrise or sunset timing</li><li>Shoot flow and route</li>
+      <li>Outfit and look changes</li><li>Hair and make-up artist</li><li>Car between locations</li><li>Props and florals</li>
+      <li>Drone where allowed</li><li>Teaser film for socials</li>
+    </ul>
+  </div>
+</section>
+
+<!-- A real shoot day -->
+<section class="section g-sand" aria-labelledby="th">
+  <div class="wrap">
+    <div class="row" style="justify-content:space-between;align-items:end;margin-bottom:48px">
+      <div class="stack"><span class="eyebrow">A sample shoot day in December</span><h2 id="th" class="h2">One afternoon, <em>two looks, three places.</em></h2></div>
+      <p class="muted" style="max-width:34ch">Times move with the season. We send yours with your plan.</p>
+    </div>
+    <ol class="timeline">
+      <li><time>1:30</time><span>Hair and make-up at your hotel</span></li>
+      <li><time>3:15</time><span>Look one: Fontainhas lanes, Panjim</span></li>
+      <li><time>4:10</time><span>Drive north, change in the car</span></li>
+      <li><time>4:50</time><span>Look two: Chapora cliffs, drone</span></li>
+      <li class="gold"><time>5:30</time><span>Golden hour, Vagator shoreline</span></li>
+      <li><time>6:05</time><span>Sunset. Wrap by blue hour.</span></li>
+    </ol>
+  </div>
+</section>
+
+<section class="section g-shell">
+  <div class="wrap">
+    <div class="grid-12" style="gap:16px">
+      <div class="media r-4x5 reveal-img" style="grid-column:1/span 4"><img src="assets/img/engagement.jpg" alt="Couple celebrating engagement" loading="lazy"></div>
+      <div class="media reveal-img" style="grid-column:5/span 8;aspect-ratio:auto"><img src="assets/img/prewed-green.jpg" alt="Couple in greenery" loading="lazy"></div>
+      <div class="media r-21x9 reveal-img" style="grid-column:1/-1"><img src="assets/img/concept-shore.jpg" alt="Goa shoreline at dusk" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<section class="section g-shell" style="padding-top:0" aria-labelledby="pp">
+  <div class="wrap">
+    <h2 id="pp" class="h2" style="margin-bottom:40px">Pre-wedding <em>packages.</em></h2>
+    <div class="pw-pkgs">
+      <div class="pw-pkg"><span class="tag prewed">Half day</span><h3>Golden hour</h3><p class="p num">₹35,000</p><p class="caption">One or two nearby locations, one look, 40+ edited photos, planning included.</p></div>
+      <div class="pw-pkg"><span class="tag prewed">Full day</span><h3>Two Goas</h3><p class="p num">₹60,000</p><p class="caption">North and South or beach and heritage, two looks, 80+ photos, 60-second teaser.</p></div>
+      <div class="pw-pkg"><span class="tag prewed">Full day + film</span><h3>The feature</h3><p class="p num">₹95,000</p><p class="caption">Three locations, drone, 3-minute film, make-up and transport arranged.</p></div>
+    </div>
+    <div class="row" style="margin-top:40px;gap:12px 28px"><a class="btn" href="availability.html">Plan your pre-wedding <span class="arr">→</span></a><span class="caption">Prices are samples for this design.</span></div>
+  </div>
+</section>
+
+</main>
+<script src="assets/sv.js"></script>
+<script>
+  const moods = [
+    { img: 'concept-shore-walk', alt: 'Couple walking on the beach at sunset', stamp: 'Morjim · Ashwem <i>North Goa</i>', t: 'Barefoot on an empty beach at sunset.', time: 'Last 45 minutes before sunset', m: 'October to May', w: 'Flowing fabrics, ivory, pastels, no heels', p: 'A clifftop stop at Vagator' },
+    { img: 'concept-shore', alt: 'Shoreline beneath cliffs', stamp: 'Chapora · Vagator <i>North Goa</i>', t: 'Red laterite cliffs, wind and a wide sea.', time: 'Golden hour, from the fort walls', m: 'November to April', w: 'Bold colours that stand against red rock', p: 'Vagator shoreline for sunset' },
+    { img: 'arches-couple', alt: 'Couple between white arches', stamp: 'Fontainhas · Panjim <i>Latin quarter</i>', t: 'Painted walls, azulejo tiles and quiet lanes.', time: '7 to 9 am, before the lanes fill', m: 'All year', w: 'Tailored looks, sarees, vintage styling', p: 'Miramar or Dona Paula for sunset' },
+    { img: 'prewed-green', alt: 'Couple in lush greenery', stamp: 'Divar · Chorão <i>River islands</i>', t: 'Paddy fields, ferries and village chapels.', time: 'Late afternoon', m: 'July to October for green', w: 'Earthy tones, whites, linen', p: 'A ferry ride across the Mandovi' },
+    { img: 'prewed-resort', alt: 'Couple at a villa courtyard', stamp: 'Assagao · Siolim <i>Villas</i>', t: 'Verandas, pools and slow afternoons.', time: 'Shaded all day, lovely at dusk', m: 'All year', w: 'Resort wear, a second evening look', p: 'Your own villa or a partner property' },
+    { img: 'kiss', alt: 'Couple close under dramatic sky', stamp: 'Anywhere in Goa <i>June–September</i>', t: 'Moody skies, waterfalls and emerald Goa.', time: 'Between showers, we watch the radar', m: 'June to September', w: 'Layers, darker colours, nothing that minds rain', p: 'Covered back-up at a heritage home' }
+  ];
+  const g = document.querySelector('.moods'), img = document.getElementById('mood-img');
+  g.addEventListener('pick', (e) => {
+    const m = moods[+e.detail];
+    img.style.opacity = 0;
+    setTimeout(() => { img.src = 'assets/img/' + m.img + '.jpg'; img.alt = m.alt; img.style.opacity = 1; }, 180);
+    document.getElementById('mood-stamp').innerHTML = m.stamp;
+    document.getElementById('mood-title').textContent = m.t;
+    document.getElementById('mood-time').textContent = m.time;
+    document.getElementById('mood-months').textContent = m.m;
+    document.getElementById('mood-wear').textContent = m.w;
+    document.getElementById('mood-pair').textContent = m.p;
+  });
+</script>
+</body>
+</html>

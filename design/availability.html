@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Book Us · Sands & Vows</title>
+<meta name="description" content="Check Sands & Vows availability for your Goa wedding, pre-wedding, couple shoot, corporate event or celebration. Reply within one working day.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Figtree:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/sv.css">
+<style>
+  .av { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); min-height: 100svh; }
+  .av-side { position: sticky; top: 0; height: 100svh; color: #fbf6ee; background: var(--night); overflow: hidden; }
+  .av-side img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .62; transition: opacity var(--t-slow) var(--ease); }
+  .av-side .in { position: relative; z-index: 2; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; gap: 22px; padding: calc(var(--header-h) + 40px) clamp(24px, 3.5vw, 56px) 48px; background: linear-gradient(180deg, rgba(20,18,15,.2), rgba(20,18,15,.82) 70%); }
+  .summary { display: grid; grid-template-columns: auto 1fr; gap: 8px 18px; font-size: 15px; border-top: 1px solid rgba(251,246,238,.25); padding-top: 18px; }
+  .summary dt { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--sand); padding-top: 3px; }
+  .summary dd { margin: 0; min-height: 1.5em; }
+  .next-steps { display: grid; gap: 8px; font-size: 14px; color: rgba(251,246,238,.82); }
+  .next-steps li { display: flex; gap: 10px; }
+  .next-steps li span { color: var(--amber); font-variant-numeric: tabular-nums; }
+  .av-main { padding: calc(var(--header-h) + 48px) clamp(20px, 5vw, 96px) 96px; display: grid; align-content: start; gap: 36px; }
+  .progress { display: grid; gap: 12px; }
+  .progress .bar { height: 2px; background: var(--line); position: relative; }
+  .progress .bar i { position: absolute; inset: 0 auto 0 0; background: var(--laterite); transition: width var(--t-slow) var(--ease-out); }
+  .progress ol { display: flex; gap: 24px; font-size: 13px; font-weight: 600; color: var(--stone); }
+  .progress li[aria-current="step"] { color: var(--ink); }
+  .progress li.done { color: var(--laterite); }
+  .step-panel { display: grid; gap: 32px; animation: fadeUp var(--t-slow) var(--ease-out); }
+  .types { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px 14px; }
+  .fields { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 28px; }
+  .fields .full { grid-column: 1 / -1; }
+  .actions { display: flex; gap: 16px 28px; align-items: center; flex-wrap: wrap; padding-top: 8px; }
+  .actions .back { font-weight: 600; font-size: 15px; color: var(--stone); padding: 12px 0; }
+  .actions .back:hover { color: var(--ink); }
+  .alt { display: flex; flex-wrap: wrap; gap: 10px 20px; align-items: center; font-size: 14px; color: var(--stone); padding-top: 24px; border-top: 1px solid var(--line); }
+  .alt .wa { color: var(--whatsapp); }
+  .av-side .start { display: none; align-items: center; gap: 10px; font-weight: 600; font-size: 15px; color: #fbf6ee; min-height: 44px; }
+  .done-panel { display: grid; gap: 24px; max-width: 560px; }
+  .done-panel .tick { width: 64px; height: 64px; border-radius: 50%; background: var(--palm); color: var(--shell); display: grid; place-items: center; }
+  .sun-inline { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; color: var(--stone); }
+  .sun-inline svg { width: 18px; flex: none; color: var(--amber); margin-top: 2px; }
+  @media (max-width: 960px) {
+    .av { grid-template-columns: 1fr; }
+    .av-side { position: relative; height: auto; min-height: 360px; }
+    .av-side .in { padding: calc(var(--header-h) + 40px) var(--gutter) 40px; justify-content: flex-end; gap: 16px; min-height: 360px; }
+    .av-side .start { display: inline-flex; }
+    .av-side .summary, .av-side .next-steps { display: none; }
+    .av-main { padding: 28px var(--gutter) calc(env(safe-area-inset-bottom, 0px) + 120px); gap: 28px; }
+    .types { grid-template-columns: 1fr 1fr; gap: 14px 10px; }
+    .fields { grid-template-columns: 1fr; gap: 22px; }
+    .actions { position: fixed; left: 0; right: 0; bottom: 0; z-index: 40; padding: 10px 16px calc(env(safe-area-inset-bottom, 0px) + 10px); background: rgba(242,236,225,.96); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); box-shadow: 0 -1px 0 var(--line); flex-wrap: nowrap; gap: 12px; padding-right: 82px; }
+    .actions { transition: transform var(--t-mid) var(--ease-out); }
+    .actions.off { transform: translateY(110%); }
+    .actions .btn { flex: 1; }
+    .actions .back { flex: none; padding-inline: 8px; }
+    .progress li:not([aria-current]) { display: none; }
+  }
+</style>
+</head>
+<body data-page="availability" data-hdr="light">
+<main id="main" class="av">
+  <aside class="av-side" aria-label="Your enquiry">
+    <img id="side-img" src="assets/img/beach-mandap.jpg" alt="">
+    <div class="in">
+      <span class="eyebrow" style="color:#f1e2c8">Book us</span>
+      <h1 class="h2" id="side-h">Tell us your dates. <em>We'll hold the light.</em></h1>
+      <dl class="summary" aria-live="polite">
+        <dt>Planning</dt><dd id="sum-type">–</dd>
+        <dt>Date</dt><dd id="sum-date">–</dd>
+        <dt>Where</dt><dd id="sum-where">–</dd>
+        <dt>Light</dt><dd id="sum-sun">–</dd>
+      </dl>
+      <a class="start" href="#av-form">Start your booking ↓</a>
+      <ol class="next-steps">
+        <li><span>1</span>We check the calendar and reply within one working day.</li>
+        <li><span>2</span>A 20-minute call or WhatsApp chat to plan.</li>
+        <li><span>3</span>An itemised quote. Your date is held for 7 days.</li>
+      </ol>
+    </div>
+  </aside>
+
+  <div class="av-main">
+    <div class="progress" aria-label="Progress">
+      <div class="bar"><i id="bar" style="width:33%"></i></div>
+      <ol><li id="p1" aria-current="step">1 · The occasion</li><li id="p2">2 · The details</li><li id="p3">3 · Your contact</li></ol>
+    </div>
+
+    <form id="av-form" novalidate>
+      <!-- Step 1 -->
+      <div class="step-panel" data-step="1">
+        <div class="stack"><h2 class="h3">What are you planning <em>in Goa?</em></h2><p class="muted">Choose one. The next step changes to fit it.</p></div>
+        <div class="types" id="types" data-group role="group" aria-label="Occasion"></div>
+      </div>
+      <!-- Step 2 -->
+      <div class="step-panel" data-step="2" hidden>
+        <div class="stack"><h2 class="h3" id="s2-h">About the <em>wedding</em></h2><p class="muted" id="s2-p">Rough answers are fine. We'll refine them together.</p></div>
+        <div class="fields" id="fields"></div>
+      </div>
+      <!-- Step 3 -->
+      <div class="step-panel" data-step="3" hidden>
+        <div class="stack"><h2 class="h3">How can we <em>reach you?</em></h2><p class="muted">We reply on WhatsApp unless you prefer email.</p></div>
+        <div class="fields">
+          <div class="field" id="f-name"><label for="name">Your name</label><input class="input" id="name" name="name" autocomplete="name" placeholder="First and last name"><span class="err">Please add your name so we know who to reply to.</span></div>
+          <div class="field" id="f-phone"><label for="phone">Phone / WhatsApp</label><input class="input" id="phone" name="phone" type="tel" autocomplete="tel" placeholder="+91 98xxx xxxxx" inputmode="tel"><span class="err">Add a phone number with country code, e.g. +91 98765 43210.</span></div>
+          <div class="field"><label for="email">Email <span class="muted" style="font-weight:400">(optional)</span></label><input class="input" id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com"></div>
+          <div class="field"><label for="city">You're travelling from</label><input class="input" id="city" name="city" list="cities" placeholder="Mumbai, Delhi, Dubai…"><datalist id="cities"><option>Mumbai</option><option>Delhi NCR</option><option>Pune</option><option>Bengaluru</option><option>Ahmedabad</option><option>Surat</option><option>Hyderabad</option><option>Outside India</option></datalist></div>
+          <div class="field full"><span class="lbl">Best way to reply</span><div class="options" data-group role="group" aria-label="Reply method"><button class="chip" type="button" aria-pressed="true">WhatsApp</button><button class="chip" type="button" aria-pressed="false">Phone call</button><button class="chip" type="button" aria-pressed="false">Email</button></div></div>
+          <div class="field full"><label for="notes">Tell us about your plan <span class="muted" style="font-weight:400">(optional)</span></label><textarea class="textarea" id="notes" name="notes" placeholder="Anything we should know: the vibe, a Pinterest board, family traditions, a surprise…"></textarea></div>
+        </div>
+      </div>
+      <!-- Done -->
+      <div class="step-panel" data-step="4" hidden>
+        <div class="done-panel">
+          <div class="tick"><svg width="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 5 5 9-10"/></svg></div>
+          <h2 class="h2" id="done-h">Your Goa story, <em>ready to begin.</em></h2>
+          <p class="lead muted" id="done-p">Review your enquiry, then open WhatsApp to send it to our team.</p>
+          <pre class="enquiry-review" id="enquiry-review"></pre>
+          <p class="caption">Nothing has been sent yet. You can edit the message in WhatsApp before sending.</p>
+          <div><button class="link" type="button" id="edit-enquiry">Edit your details ←</button></div>
+          <div class="row" style="gap:12px 24px"><a class="wa" id="done-wa" target="_blank" rel="noopener" style="color:var(--whatsapp)">Continue on WhatsApp now</a><a class="link" href="home.html#stories">Browse stories while you wait <span class="arr">→</span></a></div>
+        </div>
+      </div>
+
+      <div class="actions" id="actions">
+        <button class="back" type="button" id="back" hidden>← Back</button>
+        <button class="btn" type="submit" id="next">Continue <span class="arr">→</span></button>
+      </div>
+    </form>
+
+    <div class="alt" id="alt"><span>Prefer to talk?</span><a class="wa" id="alt-wa" target="_blank" rel="noopener"></a><span class="num">+91 81888 81165</span></div>
+  </div>
+</main>
+<script src="assets/sv.js"></script>
+<script>
+(function () {
+  const $ = (s) => document.querySelector(s);
+  const types = [
+    { k: 'wedding', t: 'Destination wedding', d: 'One to four days', img: 'varmala', side: 'beach-mandap' },
+    { k: 'prewed', t: 'Pre-wedding shoot', d: 'Half or full day', img: 'prewed-green', side: 'prewed-resort' },
+    { k: 'couple', t: 'Couple, honeymoon or proposal', d: '60–120 minutes', img: 'couple-dance', side: 'concept-shore-walk' },
+    { k: 'corporate', t: 'Corporate offsite or event', d: 'Per day', img: 'corp-team', side: 'corp-conference' },
+    { k: 'celebrate', t: 'Birthday or anniversary', d: 'Private celebrations', img: 'birthday', side: 'night-stage' },
+    { k: 'family', t: 'Maternity or family', d: 'Relaxed sessions', img: 'family', side: 'family-portrait' }
+  ];
+  const chips = (name, opts, multi, on) => `<div class="options" data-group ${multi ? 'data-multi' : ''} role="group" aria-label="${name}" data-name="${name}">${opts.map((o, i) => `<button class="chip" type="button" aria-pressed="${(on || []).includes(i)}" data-v="${o}">${o}</button>`).join('')}</div>`;
+  const F = {
+    date: (id, label, req, hint) => `<div class="field ${req ? 'req' : ''}" id="f-${id}"><label for="${id}">${label}</label><input class="input" type="date" id="${id}" name="${id}"><span class="err">Pick a date. An approximate one is fine.</span>${hint ? `<span class="sun-inline" id="${id}-sun"></span>` : ''}</div>`,
+    text: (id, label, ph, list) => `<div class="field"><label for="${id}">${label}</label><input class="input" id="${id}" name="${id}" placeholder="${ph}" ${list ? `list="${list}"` : ''}></div>`,
+    select: (id, label, opts) => `<div class="field"><label for="${id}">${label}</label><select class="select" id="${id}" name="${id}">${opts.map(o => `<option>${o}</option>`).join('')}</select></div>`,
+    chips: (label, name, opts, multi, on, full) => `<div class="field ${full ? 'full' : ''}"><span class="lbl">${label}</span>${chips(name, opts, multi, on)}</div>`
+  };
+  const venues = '<datalist id="venues"><option>Morjim / Ashwem</option><option>Mandrem</option><option>Vagator / Anjuna</option><option>Assagao / Siolim villa</option><option>Candolim / Calangute</option><option>Panjim / Fontainhas</option><option>South Goa</option><option>Not decided yet</option></datalist>';
+  const steps2 = {
+    wedding: { h: 'About the <em>wedding</em>', p: 'Rough answers are fine. We\'ll refine them together.', f: () =>
+      F.date('date', 'First day of the wedding', true, true) + F.chips('Number of days', 'days', ['1', '2', '3', '4+'], false, [1]) +
+      F.text('venue', 'Resort or area', 'e.g. W Goa, or "not decided"', 'venues') + F.select('guests', 'Estimated guests', ['Under 50', '50–100', '100–200', '200–400', '400+']) +
+      F.chips('Functions to cover', 'functions', ['Haldi', 'Mehendi', 'Sangeet', 'Wedding', 'Reception', 'Pre-wedding shoot'], true, [0, 2, 3, 4], true) +
+      F.chips('Coverage', 'coverage', ['Photography', 'Film', 'Both'], false, [2], true) },
+    prewed: { h: 'About your <em>pre-wedding</em>', p: 'Not sure where? Choose "Help us choose" and we\'ll suggest a plan.', f: () =>
+      F.date('date', 'Preferred shoot date', true, true) + F.select('daysgoa', 'Days you\'ll be in Goa', ['1–2 days', '3–4 days', '5+ days', 'We live in Goa']) +
+      F.chips('Area', 'area', ['North Goa', 'South Goa', 'Both', 'Help us choose'], false, [3], true) +
+      F.chips('Moods you like', 'moods', ['Beaches', 'Cliffs & forts', 'Portuguese streets', 'Greenery', 'Villas', 'Monsoon'], true, [0, 2], true) +
+      F.chips('Coverage', 'coverage', ['Photography', 'Film', 'Both'], false, [2]) +
+      F.chips('Help with', 'help', ['Make-up', 'Outfits', 'Transport', 'Drone'], true, [0, 2]) },
+    couple: { h: 'About your <em>Goa trip</em>', p: 'We\'ll suggest a spot close to where you\'re staying.', f: () =>
+      F.date('date', 'Arriving in Goa', true, true) + F.date('dateout', 'Leaving Goa', false) +
+      F.text('venue', 'Staying in', 'Hotel or area', 'venues') + F.chips('Occasion', 'occasion', ['Honeymoon', 'Proposal', 'Anniversary', 'Just because'], false, [0]) +
+      F.chips('Session length', 'length', ['60 min', '90 min', '120 min + reel'], false, [1], true) },
+    corporate: { h: 'About the <em>event</em>', p: 'Share what you know. An agenda helps if you have one.', f: () =>
+      F.text('company', 'Company', 'Company name') + F.select('etype', 'Event type', ['Offsite / retreat', 'Conference', 'Award night', 'Incentive trip', 'Team-building', 'Brand event / launch']) +
+      F.date('date', 'Start date', true, false) + F.chips('Days', 'days', ['1', '2', '3', '4+'], false, [1]) +
+      F.text('venue', 'Resort or venue', 'e.g. Taj Fort Aguada', 'venues') + F.select('guests', 'Attendees', ['Under 30', '30–100', '100–300', '300+']) +
+      F.chips('Deliverables', 'deliver', ['Photos', 'Same-day reel', 'Event film', 'Face-search gallery', 'Live stream'], true, [0, 1, 3], true) },
+    celebrate: { h: 'About the <em>celebration</em>', p: 'Birthdays, anniversaries and private parties.', f: () =>
+      F.chips('Occasion', 'occasion', ['Birthday', 'Anniversary', 'Private party'], false, [0], true) + F.date('date', 'Date', true, true) +
+      F.text('venue', 'Venue or area', 'Villa, restaurant, beach club…', 'venues') + F.select('guests', 'Guests', ['Under 20', '20–60', '60–150', '150+']) +
+      F.chips('Coverage', 'coverage', ['Photography', 'Film', 'Both'], false, [0]) },
+    family: { h: 'About your <em>session</em>', p: 'Unhurried, at your villa or by the sea.', f: () =>
+      F.chips('Session', 'session', ['Maternity', 'Family', 'Newborn'], false, [0], true) + F.date('date', 'Dates in Goa', true, true) +
+      F.text('venue', 'Area', 'Where you\'re staying', 'venues') + F.select('people', 'People in the photos', ['2', '3–4', '5–8', '9+']) }
+  };
+
+  let step = 1, type = null;
+  const tWrap = $('#types');
+  tWrap.innerHTML = types.map(t => `<button type="button" class="opt-card" aria-pressed="false" data-v="${t.k}"><span class="media"><img src="assets/img/${t.img}.jpg" alt="" loading="lazy"></span><span class="tick" aria-hidden="true">✓</span><b>${t.t}</b><span>${t.d}</span></button>`).join('');
+  tWrap.querySelectorAll('.opt-card').forEach(b => b.addEventListener('click', () => {
+    tWrap.querySelectorAll('.opt-card').forEach(x => x.setAttribute('aria-pressed', x === b));
+    pick(b.dataset.v);
+  }));
+
+  function pick(k) {
+    if (type && type.k === k) return;
+    type = types.find(t => t.k === k);
+    $('#sum-type').textContent = type.t;
+    const img = $('#side-img'); img.style.opacity = 0;
+    setTimeout(() => { img.src = 'assets/img/' + type.side + '.jpg'; img.style.opacity = .62; }, 250);
+    const s = steps2[k];
+    $('#s2-h').innerHTML = s.h; $('#s2-p').textContent = s.p;
+    $('#fields').innerHTML = s.f() + venues;
+    bindFields();
+    $('#next').disabled = false;
+  }
+
+  function bindFields() {
+    document.querySelectorAll('#fields [data-group]').forEach(g => g.querySelectorAll('[aria-pressed]').forEach(b => b.addEventListener('click', () => {
+      if (g.dataset.multi === undefined) g.querySelectorAll('[aria-pressed]').forEach(x => x.setAttribute('aria-pressed', 'false'));
+      b.setAttribute('aria-pressed', g.dataset.multi !== undefined ? String(b.getAttribute('aria-pressed') !== 'true') : 'true');
+    })));
+    const d = $('#date');
+    const departure = $('#dateout'); if (departure) departure.addEventListener('input', () => departure.setCustomValidity(''));
+    if (d) { const today = new Date(); today.setMinutes(today.getMinutes() - today.getTimezoneOffset()); d.min = today.toISOString().slice(0, 10); }
+    if (d) d.addEventListener('input', () => {
+      const s = SV.sunset(d.value);
+      $('#sum-date').textContent = s ? new Date(d.value).toLocaleDateString('en-IN', { weekday: 'short', day: 'numeric', month: 'long', year: 'numeric' }) : '–';
+      $('#sum-sun').textContent = s ? `Golden hour from ${s.golden}, sunset ≈ ${s.sunset}${s.monsoon ? ' · monsoon' : ''}` : '–';
+      const out = $('#date-sun'); if (out) out.innerHTML = s ? `${SV.sunIcon}<span>Sunset in Goa that day is around ${s.sunset}. We'll plan the key moments around it.${s.monsoon ? ' It\'s monsoon season, so we add a covered back-up.' : ''}</span>` : '';
+      d.closest('.field').classList.remove('error');
+    });
+    const v = $('#venue'); if (v) v.addEventListener('input', () => $('#sum-where').textContent = v.value || '–');
+    // prefill from the quick form on other pages
+    try {
+      const pre = JSON.parse(sessionStorage.getItem('sv-prefill') || 'null');
+      if (pre) {
+        if (pre.date && d) { d.value = pre.date; d.dispatchEvent(new Event('input')); }
+        if (pre.area && v) { v.value = pre.area; v.dispatchEvent(new Event('input')); }
+        if (pre.length) document.querySelectorAll('[data-name="length"] button').forEach(b => b.setAttribute('aria-pressed', b.textContent.startsWith(pre.length)));
+      }
+    } catch (_) {}
+  }
+
+  function show(n, initial) {
+    step = n;
+    $('.progress').hidden = n === 4;
+    document.querySelectorAll('[data-step]').forEach(p => p.hidden = +p.dataset.step !== n);
+    $('#bar').style.width = Math.min(n, 3) / 3 * 100 + '%';
+    [1, 2, 3].forEach(i => { const li = $('#p' + i); li.classList.toggle('done', i < n); li.toggleAttribute('aria-current', i === n); if (i === n) li.setAttribute('aria-current', 'step'); });
+    $('#back').hidden = n === 1 || n === 4;
+    $('#actions').hidden = n === 4; $('#alt').hidden = n === 4;
+    $('#next').innerHTML = n === 3 ? 'Review your enquiry <span class="arr">→</span>' : 'Continue <span class="arr">→</span>';
+    $('#next').disabled = n === 1 && !type;
+    if (!initial) {
+      window.scrollTo({ top: innerWidth < 960 ? document.querySelector('.av-main').offsetTop - 60 : 0, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+      const heading = document.querySelector(`[data-step="${n}"] h2`); heading.tabIndex = -1; heading.focus({ preventScroll: true });
+    }
+  }
+
+  $('#back').addEventListener('click', () => show(step - 1));
+  $('#edit-enquiry').addEventListener('click', () => show(3));
+  $('#av-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (step === 1 && type) return show(2);
+    if (step === 2) {
+      const d = $('#date');
+      if (d && !d.value) { d.closest('.field').classList.add('error'); d.focus(); return; }
+      if (d && !d.validity.valid) { d.reportValidity(); return; }
+      const end = $('#dateout');
+      if (end && end.value && end.value < d.value) { end.setCustomValidity('Choose a departure date on or after your arrival.'); end.reportValidity(); return; }
+      if (end) end.setCustomValidity('');
+      return show(3);
+    }
+    if (step === 3) {
+      let ok = true;
+      const n = $('#name'), p = $('#phone');
+      $('#f-name').classList.toggle('error', !n.value.trim()); if (!n.value.trim()) ok = false;
+      const pv = p.value.replace(/[\s().-]/g, ''); const pOk = /^\+?\d{10,15}$/.test(pv);
+      $('#f-phone').classList.toggle('error', !pOk); if (!pOk) ok = false;
+      if (!ok) { document.querySelector('.field.error input').focus(); return; }
+      const email = $('#email');
+      if (email.value && !email.validity.valid) { email.reportValidity(); return; }
+      {
+        const lines = [`Hi Sands & Vows, I'm ${n.value.trim()}.`, `Planning: ${type.t}`];
+        document.querySelectorAll('#av-form input, #av-form select, #av-form textarea').forEach(input => {
+          if (!input.value || input.id === 'name') return;
+          const label = document.querySelector(`label[for="${input.id}"]`);
+          lines.push(`${label ? label.textContent.replace('(optional)', '').trim() : input.name}: ${input.value}`);
+        });
+        document.querySelectorAll('#av-form .options').forEach(group => {
+          const selected = Array.from(group.querySelectorAll('[aria-pressed="true"]')).map(b => b.textContent.trim());
+          const label = group.closest('.field').querySelector('.lbl');
+          if (selected.length) lines.push(`${label ? label.textContent : group.getAttribute('aria-label')}: ${selected.join(', ')}`);
+        });
+        const msg = lines.join('\n');
+        $('#enquiry-review').textContent = msg;
+        $('#done-wa').href = 'https://wa.me/918188881165?text=' + encodeURIComponent(msg);
+        $('#done-wa').innerHTML = SV.waIcon + ' Open WhatsApp to send';
+        show(4);
+      }
+    }
+  });
+  ['#name', '#phone'].forEach(s => $(s).addEventListener('input', (e) => e.target.closest('.field').classList.remove('error')));
+  $('#alt-wa').href = SV.WA; $('#alt-wa').innerHTML = SV.waIcon + ' WhatsApp us';
+
+  // Prefill occasion from the quick form
+  try {
+    const pre = JSON.parse(sessionStorage.getItem('sv-prefill') || 'null');
+    const map = { 'Destination wedding': 'wedding', 'Pre-wedding shoot': 'prewed', 'Couple / honeymoon / proposal': 'couple', 'Corporate offsite / event': 'corporate', 'Conference': 'corporate', 'Award night': 'corporate', 'Birthday / anniversary': 'celebrate', 'Maternity / family': 'family' };
+    if (pre && map[pre.type]) { tWrap.querySelector(`[data-v="${map[pre.type]}"]`).click(); }
+  } catch (_) {}
+  show(1, true);
+  // Phones: keep the Continue bar out of the full-screen hero until the form is on screen
+  if ('IntersectionObserver' in window) {
+    const act = $('#actions');
+    new IntersectionObserver((es) => es.forEach(e => act.classList.toggle('off', !e.isIntersecting)), { rootMargin: '0px 0px -30% 0px' }).observe(document.querySelector('.av-main'));
+  }
+})();
+</script>
+</body>
+</html>
