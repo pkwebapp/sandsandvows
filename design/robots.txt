@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://sandsandvows.com/sitemap.xml

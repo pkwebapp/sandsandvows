@@ -23,7 +23,6 @@
     ['pre-wedding.html', 'Pre-Weddings', 'prewed'],
     ['couples.html', 'Couples', 'couples'],
     ['corporate.html', 'Corporate', 'corporate'],
-    ['home.html#stories', 'Stories', 'stories'],
     ['home.html#goa', 'Our Goa', 'goa', 'hide-md']
   ];
   const more = [
@@ -32,7 +31,7 @@
     ['home.html#films', 'Films', 'Wedding films, reels and event edits', 'sea-arch'],
     ['home.html#pricing', 'Pricing', 'Starting prices for every experience', 'venue-lawn'],
     ['home.html#about', 'About us', 'The Goa team behind the camera', 'groom-white'],
-    ['story.html', 'Journal', 'Goa location notes and planning guides', 'concept-shore']
+    ['availability.html', 'Availability', 'Tell us your dates and we will reply on WhatsApp', 'sea-arch']
   ];
 
   /* ---------- Chrome: header, mobile sheet, action bar, footer ---------- */
@@ -68,7 +67,6 @@
       <a href="pre-wedding.html">Pre-Weddings <small>Across Goa</small></a>
       <a href="couples.html">Couples <small>60–120 min</small></a>
       <a href="corporate.html">Corporate <small>Offsites · events</small></a>
-      <a href="home.html#stories">Stories <small>Our work</small></a>
       <a href="home.html#goa">Our Goa <small>Locations</small></a>
     </nav>
     <div class="sub"><a href="home.html#experiences">Celebrations</a><a href="home.html#experiences">Maternity &amp; Family</a><a href="home.html#films">Films</a><a href="home.html#pricing">Pricing</a><a href="home.html#about">About</a></div>
@@ -112,7 +110,7 @@
         <div><h4>Goa, by area</h4><ul>
           <li><a href="home.html#goa">Explore the Goa coast</a></li><li><a href="pre-wedding.html#moods">Find your location</a></li><li><a href="availability.html">Plan a route with us</a></li></ul></div>
         <div><h4>Plan</h4><ul>
-          <li><a href="home.html#pricing">Pricing</a></li><li><a href="home.html#stories">Stories</a></li><li><a href="home.html#films">Films</a></li>
+          <li><a href="home.html#pricing">Pricing</a></li><li><a href="home.html#films">Films</a></li><li><a href="privacy.html">Privacy</a></li>
           <li><a href="weddings.html#faq">Questions</a></li><li><a href="home.html#about">About</a></li><li><a href="https://pikconnect.com/" target="_blank" rel="noopener">Client galleries ↗</a></li></ul></div>
         <div><h4>Start a conversation</h4><ul><li><a href="availability.html">Plan your celebration →</a></li><li><a href="${WA}" target="_blank" rel="noopener">Chat on WhatsApp ↗</a></li></ul></div>
       </div>
@@ -122,10 +120,6 @@
       </div>
     </div>`;
   document.body.appendChild(ftr);
-  const note = document.createElement('div'); note.className = 'proto-note';
-  note.innerHTML = 'Design prototype. Photographs are placeholders from the PK Photography library; story names, locations, quotes and some prices are sample copy. <a href="index.html">Back to the design book</a>';
-  document.body.appendChild(note);
-
   /* ---------- Header behaviour ---------- */
   const heroEl = $('.hero');
   const alwaysSolid = document.body.dataset.hdr === 'light';
@@ -205,21 +199,25 @@
     play();
   }
 
-  /* ---------- Hero video: phone gets the vertical cut, desktop the wide film ---------- */
+  /* ---------- Hero film: defer a large cinematic asset until the visitor asks for it ---------- */
   const hv = $('.hero-video');
   if (hv) {
     const pb = $('.hero-pause');
-    if (reduce || saveData) { hv.removeAttribute('autoplay'); if (pb) pb.hidden = true; }
-    else {
+    const loadHeroFilm = () => {
       const portrait = matchMedia('(max-width: 860px) and (orientation: portrait)').matches;
-      hv.src = portrait ? hv.dataset.mobile : hv.dataset.desktop;
+      if (!hv.src) hv.src = portrait ? hv.dataset.mobile : hv.dataset.desktop;
       hv.play().catch(() => {});
-      document.addEventListener('visibilitychange', () => document.hidden ? hv.pause() : (!hv.dataset.paused && hv.play().catch(() => {})));
-      if (pb) pb.addEventListener('click', () => {
-        if (hv.paused) { hv.play().catch(() => {}); delete hv.dataset.paused; pb.innerHTML = '<i>❚❚</i>Pause film'; }
-        else { hv.pause(); hv.dataset.paused = '1'; pb.innerHTML = '<i>▶</i>Play film'; }
+      if (pb) { pb.innerHTML = '<i>❚❚</i>Pause film'; pb.setAttribute('aria-pressed', 'true'); }
+    };
+    if (pb) {
+      pb.removeAttribute('hidden'); pb.innerHTML = '<i>▶</i>Play film'; pb.setAttribute('aria-pressed', 'false');
+      pb.addEventListener('click', () => {
+        if (!hv.src || hv.paused) { delete hv.dataset.paused; loadHeroFilm(); }
+        else { hv.pause(); hv.dataset.paused = '1'; pb.innerHTML = '<i>▶</i>Play film'; pb.setAttribute('aria-pressed', 'false'); }
       });
     }
+    if (reduce || saveData) { hv.removeAttribute('autoplay'); if (pb) pb.hidden = true; }
+    document.addEventListener('visibilitychange', () => document.hidden ? hv.pause() : (!hv.dataset.paused && hv.src && hv.play().catch(() => {})));
   }
 
   /* ---------- Sticky chapters ---------- */

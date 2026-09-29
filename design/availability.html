@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Book Us · Sands & Vows</title>
 <meta name="description" content="Check Sands & Vows availability for your Goa wedding, pre-wedding, couple shoot, corporate event or celebration. Reply within one working day.">
+<link rel="canonical" href="https://sandsandvows.com/availability.html"><meta property="og:type" content="website"><meta property="og:site_name" content="Sands & Vows"><meta property="og:title" content="Book Sands & Vows in Goa"><meta property="og:description" content="Tell us your dates and start a conversation on WhatsApp."><meta property="og:image" content="https://sandsandvows.com/assets/img/beach-mandap.jpg"><meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Figtree:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="assets/sv.css">
@@ -114,11 +115,11 @@
         <div class="done-panel">
           <div class="tick"><svg width="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 5 5 9-10"/></svg></div>
           <h2 class="h2" id="done-h">Your Goa story, <em>ready to begin.</em></h2>
-          <p class="lead muted" id="done-p">Review your enquiry, then open WhatsApp to send it to our team.</p>
+          <p class="lead muted" id="done-p">WhatsApp is ready with your enquiry. Send the message there to put your dates in our hands.</p>
           <pre class="enquiry-review" id="enquiry-review"></pre>
-          <p class="caption">Nothing has been sent yet. You can edit the message in WhatsApp before sending.</p>
+          <p class="caption">A chat window has opened. You can adjust the message before pressing Send.</p>
           <div><button class="link" type="button" id="edit-enquiry">Edit your details ←</button></div>
-          <div class="row" style="gap:12px 24px"><a class="wa" id="done-wa" target="_blank" rel="noopener" style="color:var(--whatsapp)">Continue on WhatsApp now</a><a class="link" href="home.html#stories">Browse stories while you wait <span class="arr">→</span></a></div>
+          <div class="row" style="gap:12px 24px"><a class="wa" id="done-wa" target="_blank" rel="noopener" style="color:var(--whatsapp)">Open WhatsApp again</a><a class="link" id="done-email">Send by email instead <span class="arr">→</span></a></div>
         </div>
       </div>
 
@@ -282,9 +283,12 @@
         });
         const msg = lines.join('\n');
         $('#enquiry-review').textContent = msg;
-        $('#done-wa').href = 'https://wa.me/918188881165?text=' + encodeURIComponent(msg);
-        $('#done-wa').innerHTML = SV.waIcon + ' Open WhatsApp to send';
+        const whatsapp = 'https://wa.me/918188881165?text=' + encodeURIComponent(msg);
+        $('#done-wa').href = whatsapp;
+        $('#done-wa').innerHTML = SV.waIcon + ' Open WhatsApp again';
+        $('#done-email').href = 'mailto:hello@sandsandvows.com?subject=' + encodeURIComponent('Goa enquiry · ' + type.t + ' · ' + n.value.trim()) + '&body=' + encodeURIComponent(msg);
         show(4);
+        window.open(whatsapp, '_blank', 'noopener');
       }
     }
   });
