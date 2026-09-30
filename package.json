@@ -1,0 +1,24 @@
+{
+  "name": "sandsandvows",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Sands & Vows static site (design/) with a small Amplify Gen 2 backend that emails enquiries via Resend.",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "build": "node scripts/build-static.mjs",
+    "test": "node --import tsx --test tests/*.test.ts",
+    "typecheck": "tsc -p amplify/tsconfig.json --noEmit"
+  },
+  "devDependencies": {
+    "@aws-amplify/backend": "^1.25.1",
+    "@aws-amplify/backend-cli": "^1.10.0",
+    "@types/aws-lambda": "^8.10.152",
+    "@types/node": "^20.19.0",
+    "aws-cdk-lib": "^2.271.0",
+    "constructs": "^10.8.1",
+    "esbuild": "^0.25.0",
+    "tsx": "^4.20.0",
+    "typescript": "~5.9.3"
+  }
+}

@@ -1,0 +1,29 @@
+version: 1
+# Sands & Vows on AWS Amplify Hosting (Gen 2).
+# backend:  deploys amplify/ (one Lambda + Function URL that emails enquiries via Resend).
+# frontend: publishes the static design/ folder as dist/ (no framework build),
+#           minus design-book.html, and fills the enquiry endpoint into availability.html.
+backend:
+  phases:
+    build:
+      commands:
+        - nvm use 20 || true
+        # npm install (not npm ci): Amplify's own packages bundle copies of deps that
+        # npm ci wrongly reports as missing from the lock file. install still honours
+        # package-lock.json (verified: lock unchanged after a clean install).
+        - npm install --no-audit --no-fund --cache .npm --prefer-offline
+        - npx ampx pipeline-deploy --branch $AWS_BRANCH --app-id $AWS_APP_ID
+frontend:
+  phases:
+    build:
+      commands:
+        - test -f amplify_outputs.json || npx ampx generate outputs --branch $AWS_BRANCH --app-id $AWS_APP_ID || true
+        - npm run build
+  artifacts:
+    baseDirectory: dist
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - .npm/**/*
+      - node_modules/**/*

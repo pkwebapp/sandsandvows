@@ -5,10 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Book Us · Sands & Vows</title>
 <meta name="description" content="Check Sands & Vows availability for your Goa wedding, pre-wedding, couple shoot, corporate event or celebration. Reply within one working day.">
-<link rel="canonical" href="https://sandsandvows.com/availability.html"><meta property="og:type" content="website"><meta property="og:site_name" content="Sands & Vows"><meta property="og:title" content="Book Sands & Vows in Goa"><meta property="og:description" content="Tell us your dates and start a conversation on WhatsApp."><meta property="og:image" content="https://sandsandvows.com/assets/img/beach-mandap.jpg"><meta name="twitter:card" content="summary_large_image">
+<meta name="sv-enquiry-url" content=""><!-- Enquiry email endpoint (Lambda Function URL). Empty = WhatsApp only. Filled automatically in the Amplify build from amplify_outputs.json, or paste the URL here. -->
+<link rel="canonical" href="https://sandsandvows.com/availability.html"><meta property="og:url" content="https://sandsandvows.com/availability.html"><meta property="og:type" content="website"><meta property="og:site_name" content="Sands & Vows"><meta property="og:title" content="Book Sands & Vows in Goa"><meta property="og:description" content="Tell us your dates and start a conversation on WhatsApp."><meta property="og:image" content="https://sandsandvows.com/assets/img/place-morjim.png"><meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Figtree:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="assets/sv.css">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png"><link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <style>
   .av { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); min-height: 100svh; }
   .av-side { position: sticky; top: 0; height: 100svh; color: #fbf6ee; background: var(--night); overflow: hidden; }
@@ -62,7 +64,7 @@
 <body data-page="availability" data-hdr="light">
 <main id="main" class="av">
   <aside class="av-side" aria-label="Your enquiry">
-    <img id="side-img" src="assets/img/beach-mandap.jpg" alt="">
+    <img id="side-img" src="assets/img/place-morjim.png" width="1536" height="1024" alt="">
     <div class="in">
       <span class="eyebrow" style="color:#f1e2c8">Book us</span>
       <h1 class="h2" id="side-h">Tell us your dates. <em>We'll hold the light.</em></h1>
@@ -88,6 +90,8 @@
     </div>
 
     <form id="av-form" novalidate>
+      <!-- Spam trap: hidden from people and assistive tech; bots that fill it are ignored by the server. -->
+      <div aria-hidden="true" style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden"><label for="hp-website">Leave this field empty</label><input type="text" id="hp-website" name="hp_website" tabindex="-1" autocomplete="off"></div>
       <!-- Step 1 -->
       <div class="step-panel" data-step="1">
         <div class="stack"><h2 class="h3">What are you planning <em>in Goa?</em></h2><p class="muted">Choose one. The next step changes to fit it.</p></div>
@@ -102,8 +106,8 @@
       <div class="step-panel" data-step="3" hidden>
         <div class="stack"><h2 class="h3">How can we <em>reach you?</em></h2><p class="muted">We reply on WhatsApp unless you prefer email.</p></div>
         <div class="fields">
-          <div class="field" id="f-name"><label for="name">Your name</label><input class="input" id="name" name="name" autocomplete="name" placeholder="First and last name"><span class="err">Please add your name so we know who to reply to.</span></div>
-          <div class="field" id="f-phone"><label for="phone">Phone / WhatsApp</label><input class="input" id="phone" name="phone" type="tel" autocomplete="tel" placeholder="+91 98xxx xxxxx" inputmode="tel"><span class="err">Add a phone number with country code, e.g. +91 98765 43210.</span></div>
+          <div class="field" id="f-name"><label for="name">Your name <span class="muted" style="font-weight:400">(required)</span></label><input class="input" id="name" name="name" autocomplete="name" placeholder="First and last name" required aria-required="true"><span class="err">Please add your name so we know who to reply to.</span></div>
+          <div class="field" id="f-phone"><label for="phone">Phone / WhatsApp <span class="muted" style="font-weight:400">(required)</span></label><input class="input" id="phone" name="phone" type="tel" autocomplete="tel" placeholder="+91 98xxx xxxxx" inputmode="tel" required aria-required="true"><span class="err">Add a phone number with country code, e.g. +91 98765 43210.</span></div>
           <div class="field"><label for="email">Email <span class="muted" style="font-weight:400">(optional)</span></label><input class="input" id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com"></div>
           <div class="field"><label for="city">You're travelling from</label><input class="input" id="city" name="city" list="cities" placeholder="Mumbai, Delhi, Dubai…"><datalist id="cities"><option>Mumbai</option><option>Delhi NCR</option><option>Pune</option><option>Bengaluru</option><option>Ahmedabad</option><option>Surat</option><option>Hyderabad</option><option>Outside India</option></datalist></div>
           <div class="field full"><span class="lbl">Best way to reply</span><div class="options" data-group role="group" aria-label="Reply method"><button class="chip" type="button" aria-pressed="true">WhatsApp</button><button class="chip" type="button" aria-pressed="false">Phone call</button><button class="chip" type="button" aria-pressed="false">Email</button></div></div>
@@ -117,7 +121,8 @@
           <h2 class="h2" id="done-h">Your Goa story, <em>ready to begin.</em></h2>
           <p class="lead muted" id="done-p">WhatsApp is ready with your enquiry. Send the message there to put your dates in our hands.</p>
           <pre class="enquiry-review" id="enquiry-review"></pre>
-          <p class="caption">A chat window has opened. You can adjust the message before pressing Send.</p>
+          <p class="caption" id="done-mail" hidden>We've also emailed your enquiry to our team.</p>
+          <p class="caption" id="done-note" aria-live="polite">Send the message in WhatsApp to put your dates in our hands. You can adjust it before pressing Send.</p>
           <div><button class="link" type="button" id="edit-enquiry">Edit your details ←</button></div>
           <div class="row" style="gap:12px 24px"><a class="wa" id="done-wa" target="_blank" rel="noopener" style="color:var(--whatsapp)">Open WhatsApp again</a><a class="link" id="done-email">Send by email instead <span class="arr">→</span></a></div>
         </div>
@@ -129,7 +134,7 @@
       </div>
     </form>
 
-    <div class="alt" id="alt"><span>Prefer to talk?</span><a class="wa" id="alt-wa" target="_blank" rel="noopener"></a><span class="num">+91 81888 81165</span></div>
+    <div class="alt" id="alt"><span>Prefer to talk?</span><a class="wa" id="alt-wa" target="_blank" rel="noopener"></a><a class="num" href="tel:+918188881165">+91 81888 81165</a></div>
   </div>
 </main>
 <script src="assets/sv.js"></script>
@@ -137,19 +142,19 @@
 (function () {
   const $ = (s) => document.querySelector(s);
   const types = [
-    { k: 'wedding', t: 'Destination wedding', d: 'One to four days', img: 'varmala', side: 'beach-mandap' },
-    { k: 'prewed', t: 'Pre-wedding shoot', d: 'Half or full day', img: 'prewed-green', side: 'prewed-resort' },
-    { k: 'couple', t: 'Couple, honeymoon or proposal', d: '60–120 minutes', img: 'couple-dance', side: 'concept-shore-walk' },
-    { k: 'corporate', t: 'Corporate offsite or event', d: 'Per day', img: 'corp-team', side: 'corp-conference' },
-    { k: 'celebrate', t: 'Birthday or anniversary', d: 'Private celebrations', img: 'birthday', side: 'night-stage' },
-    { k: 'family', t: 'Maternity or family', d: 'Relaxed sessions', img: 'family', side: 'family-portrait' }
+    { k: 'wedding', t: 'Destination wedding', d: 'One to four days', img: 'varmala', w: 1600, h: 1066, side: 'beach-mandap-web' },
+    { k: 'prewed', t: 'Pre-wedding shoot', d: 'Half or full day', img: 'prewed-green-web', w: 1500, h: 1000, side: 'prewed-resort-web' },
+    { k: 'couple', t: 'Couple, honeymoon or proposal', d: '60–120 minutes', img: 'couple-dance', w: 1600, h: 1164, side: 'portrait-couple-web' },
+    { k: 'corporate', t: 'Corporate offsite or event', d: 'Per day', img: 'corp-team', w: 1400, h: 933, side: 'corp-conference' },
+    { k: 'celebrate', t: 'Birthday or anniversary', d: 'Private celebrations', img: 'birthday', w: 1400, h: 932, side: 'night-stage' },
+    { k: 'family', t: 'Maternity or family', d: 'Relaxed sessions', img: 'family', w: 1400, h: 933, side: 'family-portrait' }
   ];
-  const chips = (name, opts, multi, on) => `<div class="options" data-group ${multi ? 'data-multi' : ''} role="group" aria-label="${name}" data-name="${name}">${opts.map((o, i) => `<button class="chip" type="button" aria-pressed="${(on || []).includes(i)}" data-v="${o}">${o}</button>`).join('')}</div>`;
+  const chips = (name, opts, multi, on, label) => `<div class="options" data-group ${multi ? 'data-multi' : ''} role="group" aria-label="${label || name}" data-name="${name}">${opts.map((o, i) => `<button class="chip" type="button" aria-pressed="${(on || []).includes(i)}" data-v="${o}">${o}</button>`).join('')}</div>`;
   const F = {
-    date: (id, label, req, hint) => `<div class="field ${req ? 'req' : ''}" id="f-${id}"><label for="${id}">${label}</label><input class="input" type="date" id="${id}" name="${id}"><span class="err">Pick a date. An approximate one is fine.</span>${hint ? `<span class="sun-inline" id="${id}-sun"></span>` : ''}</div>`,
+    date: (id, label, req, hint) => `<div class="field ${req ? 'req' : ''}" id="f-${id}"><label for="${id}">${label}${req ? ' <span class="muted" style="font-weight:400">(required)</span>' : ''}</label><input class="input" type="date" id="${id}" name="${id}"${req ? ' required aria-required="true"' : ''}><span class="err">Pick a date. An approximate one is fine.</span>${hint ? `<span class="sun-inline" id="${id}-sun"></span>` : ''}</div>`,
     text: (id, label, ph, list) => `<div class="field"><label for="${id}">${label}</label><input class="input" id="${id}" name="${id}" placeholder="${ph}" ${list ? `list="${list}"` : ''}></div>`,
     select: (id, label, opts) => `<div class="field"><label for="${id}">${label}</label><select class="select" id="${id}" name="${id}">${opts.map(o => `<option>${o}</option>`).join('')}</select></div>`,
-    chips: (label, name, opts, multi, on, full) => `<div class="field ${full ? 'full' : ''}"><span class="lbl">${label}</span>${chips(name, opts, multi, on)}</div>`
+    chips: (label, name, opts, multi, on, full) => `<div class="field ${full ? 'full' : ''}"><span class="lbl">${label}</span>${chips(name, opts, multi, on, label)}</div>`
   };
   const venues = '<datalist id="venues"><option>Morjim / Ashwem</option><option>Mandrem</option><option>Vagator / Anjuna</option><option>Assagao / Siolim villa</option><option>Candolim / Calangute</option><option>Panjim / Fontainhas</option><option>South Goa</option><option>Not decided yet</option></datalist>';
   const steps2 = {
@@ -183,8 +188,10 @@
   };
 
   let step = 1, type = null;
+  const startedAt = Date.now();
+  let lastSent = '';
   const tWrap = $('#types');
-  tWrap.innerHTML = types.map(t => `<button type="button" class="opt-card" aria-pressed="false" data-v="${t.k}"><span class="media"><img src="assets/img/${t.img}.jpg" alt="" loading="lazy"></span><span class="tick" aria-hidden="true">✓</span><b>${t.t}</b><span>${t.d}</span></button>`).join('');
+  tWrap.innerHTML = types.map(t => `<button type="button" class="opt-card" aria-pressed="false" data-v="${t.k}"><span class="media"><img src="assets/img/${t.img}.jpg" alt="" width="${t.w}" height="${t.h}" loading="lazy"></span><span class="tick" aria-hidden="true">✓</span><b>${t.t}</b><span>${t.d}</span></button>`).join('');
   tWrap.querySelectorAll('.opt-card').forEach(b => b.addEventListener('click', () => {
     tWrap.querySelectorAll('.opt-card').forEach(x => x.setAttribute('aria-pressed', x === b));
     pick(b.dataset.v);
@@ -246,6 +253,50 @@
     }
   }
 
+  /* ---------- Email copy of the enquiry (optional backend) ---------- */
+  function enquiryEndpoint() {
+    const meta = document.querySelector('meta[name="sv-enquiry-url"]');
+    const url = String(window.SV_ENQUIRY_URL || (meta && meta.content) || '').trim();
+    return /^https?:\/\//.test(url) ? url : '';
+  }
+  function labelOf(el) {
+    const l = el.id && document.querySelector(`label[for="${el.id}"]`);
+    return (l ? l.textContent : el.name || '').replace(/\((optional|required)\)/, '').trim();
+  }
+  function sendEnquiry(name, phone, email) {
+    const url = enquiryEndpoint();
+    $('#done-mail').hidden = true;
+    if (!url) return;
+    const details = [];
+    document.querySelectorAll('#fields input, #fields select').forEach(el => { if (el.value && el.id !== 'date') details.push({ label: labelOf(el), value: el.value }); });
+    document.querySelectorAll('#fields .options').forEach(g => {
+      const picked = Array.from(g.querySelectorAll('[aria-pressed="true"]')).map(b => b.textContent.trim());
+      const lbl = g.closest('.field') && g.closest('.field').querySelector('.lbl');
+      if (picked.length) details.push({ label: lbl ? lbl.textContent.trim() : g.getAttribute('aria-label'), value: picked.join(', ') });
+    });
+    const reply = document.querySelector('[aria-label="Reply method"] [aria-pressed="true"]');
+    let source = '';
+    try { source = (JSON.parse(sessionStorage.getItem('sv-prefill') || 'null') || {}).from || ''; } catch (_) {}
+    const d = $('#date');
+    const payload = { name: name.trim(), phone: phone.trim(), email: email.trim(), date: d ? d.value : '', type: type ? type.t : '',
+      city: $('#city').value.trim(), notes: $('#notes').value.trim(), replyVia: reply ? reply.textContent.trim() : '', details,
+      page: location.href.split('#')[0], source: source || document.referrer || '', hp: $('#hp-website').value };
+    const key = JSON.stringify(payload);
+    if (key === lastSent) return; // same enquiry submitted twice: email once
+    lastSent = key;
+    payload.elapsedMs = Date.now() - startedAt;
+    const body = JSON.stringify(payload);
+    // text/plain keeps this a simple CORS request (no preflight); keepalive lets it finish if the tab changes.
+    try {
+      fetch(url, { method: 'POST', mode: 'cors', credentials: 'omit', keepalive: true, headers: { 'Content-Type': 'text/plain;charset=UTF-8' }, body })
+        .then(r => (r.ok ? r.json() : null))
+        .then(j => { if (j && j.ok) $('#done-mail').hidden = false; })
+        .catch(() => {});
+    } catch (_) {
+      try { if (navigator.sendBeacon) navigator.sendBeacon(url, new Blob([body], { type: 'text/plain;charset=UTF-8' })); } catch (__) {}
+    }
+  }
+
   $('#back').addEventListener('click', () => show(step - 1));
   $('#edit-enquiry').addEventListener('click', () => show(3));
   $('#av-form').addEventListener('submit', (e) => {
@@ -272,9 +323,9 @@
       {
         const lines = [`Hi Sands & Vows, I'm ${n.value.trim()}.`, `Planning: ${type.t}`];
         document.querySelectorAll('#av-form input, #av-form select, #av-form textarea').forEach(input => {
-          if (!input.value || input.id === 'name') return;
+          if (!input.value || input.id === 'name' || input.id === 'hp-website') return;
           const label = document.querySelector(`label[for="${input.id}"]`);
-          lines.push(`${label ? label.textContent.replace('(optional)', '').trim() : input.name}: ${input.value}`);
+          lines.push(`${label ? label.textContent.replace(/\((optional|required)\)/, '').trim() : input.name}: ${input.value}`);
         });
         document.querySelectorAll('#av-form .options').forEach(group => {
           const selected = Array.from(group.querySelectorAll('[aria-pressed="true"]')).map(b => b.textContent.trim());
@@ -286,9 +337,20 @@
         const whatsapp = 'https://wa.me/918188881165?text=' + encodeURIComponent(msg);
         $('#done-wa').href = whatsapp;
         $('#done-wa').innerHTML = SV.waIcon + ' Open WhatsApp again';
-        $('#done-email').href = 'mailto:hello@sandsandvows.com?subject=' + encodeURIComponent('Goa enquiry · ' + type.t + ' · ' + n.value.trim()) + '&body=' + encodeURIComponent(msg);
+        $('#done-email').href = 'mailto:sandsandvows@pkphotography.in?subject=' + encodeURIComponent('Goa enquiry · ' + type.t + ' · ' + n.value.trim()) + '&body=' + encodeURIComponent(msg);
         show(4);
-        window.open(whatsapp, '_blank', 'noopener');
+        // 'noopener' makes window.open() always return null, so open without it and detach the opener instead.
+        let win = null;
+        try { win = window.open(whatsapp, '_blank'); } catch (_) {}
+        if (win) {
+          try { win.opener = null; } catch (_) {}
+          $('#done-note').textContent = 'WhatsApp has opened in a new tab with your message. You can adjust it before pressing Send.';
+        } else {
+          $('#done-note').textContent = 'Your browser did not open WhatsApp automatically. Tap "Open WhatsApp" below to send your enquiry, or send it by email instead.';
+          $('#done-wa').innerHTML = SV.waIcon + ' Open WhatsApp';
+        }
+        // Also email the enquiry to the team. Fire-and-forget: never delays or replaces WhatsApp.
+        sendEnquiry(n.value, p.value, email.value);
       }
     }
   });

@@ -23,14 +23,14 @@
     ['pre-wedding.html', 'Pre-Weddings', 'prewed'],
     ['couples.html', 'Couples', 'couples'],
     ['corporate.html', 'Corporate', 'corporate'],
-    ['home.html#goa', 'Our Goa', 'goa', 'hide-md']
+    ['index.html#goa', 'Our Goa', 'goa', 'hide-md']
   ];
   const more = [
-    ['home.html#experiences', 'Celebrations', 'Birthdays, anniversaries, private parties', 'birthday'],
-    ['home.html#experiences', 'Maternity & Family', 'Unhurried sessions at home or by the sea', 'family'],
-    ['home.html#films', 'Films', 'Wedding films, reels and event edits', 'sea-arch'],
-    ['home.html#pricing', 'Pricing', 'Starting prices for every experience', 'venue-lawn'],
-    ['home.html#about', 'About us', 'The Goa team behind the camera', 'groom-white'],
+    ['index.html#experiences', 'Celebrations', 'Birthdays, anniversaries, private parties', 'birthday'],
+    ['index.html#experiences', 'Maternity & Family', 'Unhurried sessions at home or by the sea', 'family'],
+    ['index.html#films', 'Films', 'Wedding films, reels and event edits', 'sea-arch'],
+    ['index.html#pricing', 'Pricing', 'Starting prices for every experience', 'venue-lawn-web'],
+    ['index.html#about', 'About us', 'The Goa team behind the camera', 'groom-white'],
     ['availability.html', 'Availability', 'Tell us your dates and we will reply on WhatsApp', 'sea-arch']
   ];
 
@@ -39,11 +39,11 @@
   hdr.className = 'hdr' + (document.body.dataset.hdr === 'light' ? ' solid' : '');
   hdr.innerHTML = `
     <div class="wrap">
-      <a class="logo" href="home.html" aria-label="Sands & Vows home"><b>Sands <em>&amp;</em> Vows</b><small>Goa · Photography &amp; Films</small></a>
+      <a class="logo" href="index.html" aria-label="Sands & Vows home"><b>Sands <em>&amp;</em> Vows</b><small>Goa · Photography &amp; Films</small></a>
       <nav class="nav" aria-label="Main">
         ${nav.map(([h, t, k, c]) => `<a href="${h}" class="${c || ''}" ${k === page ? 'aria-current="page"' : ''}>${t}</a>`).join('')}
         <div class="more"><button type="button" aria-expanded="false" aria-haspopup="true">More ${icon.chev}</button>
-          <div class="more-panel" role="menu">${more.map(([h, t, d, img]) => `<a role="menuitem" href="${h}"><img src="assets/img/${img}.jpg" alt="" loading="lazy"><div><b>${t}</b><span>${d}</span></div></a>`).join('')}</div>
+          <div class="more-panel" role="menu">${more.map(([h, t, d, img]) => `<a role="menuitem" href="${h}"><img src="assets/img/${img}.jpg" alt="" width="64" height="64" loading="lazy"><div><b>${t}</b><span>${d}</span></div></a>`).join('')}</div>
         </div>
       </nav>
       <div class="hdr-cta">
@@ -60,16 +60,16 @@
   const sheet = document.createElement('div');
   sheet.className = 'sheet'; sheet.setAttribute('role', 'dialog'); sheet.setAttribute('aria-modal', 'true'); sheet.setAttribute('aria-label', 'Menu');
   sheet.innerHTML = `
-    <div class="sheet-top"><a class="logo" href="home.html"><b>Sands <em>&amp;</em> Vows</b><small>Goa · Photography &amp; Films</small></a>
+    <div class="sheet-top"><a class="logo" href="index.html"><b>Sands <em>&amp;</em> Vows</b><small>Goa · Photography &amp; Films</small></a>
       <button class="icon-btn sheet-x" type="button" aria-label="Close menu">${icon.x}</button></div>
     <nav aria-label="Mobile">
       <a href="weddings.html">Weddings <small>Multi-day</small></a>
       <a href="pre-wedding.html">Pre-Weddings <small>Across Goa</small></a>
       <a href="couples.html">Couples <small>60–120 min</small></a>
       <a href="corporate.html">Corporate <small>Offsites · events</small></a>
-      <a href="home.html#goa">Our Goa <small>Locations</small></a>
+      <a href="index.html#goa">Our Goa <small>Locations</small></a>
     </nav>
-    <div class="sub"><a href="home.html#experiences">Celebrations</a><a href="home.html#experiences">Maternity &amp; Family</a><a href="home.html#films">Films</a><a href="home.html#pricing">Pricing</a><a href="home.html#about">About</a></div>
+    <div class="sub"><a href="index.html#experiences">Celebrations</a><a href="index.html#experiences">Maternity &amp; Family</a><a href="index.html#films">Films</a><a href="index.html#pricing">Pricing</a><a href="index.html#about">About</a></div>
     <div class="foot">
       <a class="btn block" href="availability.html">Book us <span class="arr">→</span></a>
       <a class="wa" style="justify-content:center;min-height:52px;color:var(--shell)" href="${WA}" target="_blank" rel="noopener">${icon.wa} WhatsApp +91 81888 81165</a>
@@ -100,18 +100,18 @@
           <h4>Goa studio</h4>
           <p style="font-size:15px;line-height:1.7;color:#e5ddd0;max-width:30ch">House No. 1053 A, Morjim,<br>North Goa 403512</p>
           <p style="margin-top:14px;font-size:15px;color:#e5ddd0">Phone / WhatsApp <a class="sel num" href="tel:+918188881165">+91 81888 81165</a></p>
-          <p style="font-size:15px;color:#e5ddd0">Email <a class="sel" href="mailto:hello@sandsandvows.com">hello@sandsandvows.com</a></p>
+          <p style="font-size:15px;color:#e5ddd0">Email <a class="sel" href="mailto:sandsandvows@pkphotography.in">sandsandvows@pkphotography.in</a></p>
         </div>
         <div><h4>Experiences</h4><ul>
           <li><a href="weddings.html">Destination weddings</a></li><li><a href="pre-wedding.html">Pre-wedding shoots</a></li>
           <li><a href="couples.html">Couples &amp; honeymoons</a></li><li><a href="couples.html">Proposals</a></li>
-          <li><a href="corporate.html">Corporate offsites</a></li><li><a href="home.html#experiences">Birthdays &amp; anniversaries</a></li>
-          <li><a href="home.html#experiences">Maternity &amp; family</a></li></ul></div>
+          <li><a href="corporate.html">Corporate offsites</a></li><li><a href="index.html#experiences">Birthdays &amp; anniversaries</a></li>
+          <li><a href="index.html#experiences">Maternity &amp; family</a></li></ul></div>
         <div><h4>Goa, by area</h4><ul>
-          <li><a href="home.html#goa">Explore the Goa coast</a></li><li><a href="pre-wedding.html#moods">Find your location</a></li><li><a href="availability.html">Plan a route with us</a></li></ul></div>
+          <li><a href="index.html#goa">Explore the Goa coast</a></li><li><a href="pre-wedding.html#moods">Find your location</a></li><li><a href="availability.html">Plan a route with us</a></li></ul></div>
         <div><h4>Plan</h4><ul>
-          <li><a href="home.html#pricing">Pricing</a></li><li><a href="home.html#films">Films</a></li><li><a href="privacy.html">Privacy</a></li>
-          <li><a href="weddings.html#faq">Questions</a></li><li><a href="home.html#about">About</a></li><li><a href="https://pikconnect.com/" target="_blank" rel="noopener">Client galleries ↗</a></li></ul></div>
+          <li><a href="index.html#pricing">Pricing</a></li><li><a href="index.html#films">Films</a></li><li><a href="privacy.html">Privacy</a></li>
+          <li><a href="weddings.html#faq">Questions</a></li><li><a href="index.html#about">About</a></li><li><a href="https://pikconnect.com/" target="_blank" rel="noopener">Client galleries ↗</a></li></ul></div>
         <div><h4>Start a conversation</h4><ul><li><a href="availability.html">Plan your celebration →</a></li><li><a href="${WA}" target="_blank" rel="noopener">Chat on WhatsApp ↗</a></li></ul></div>
       </div>
       <div class="base">
@@ -120,6 +120,24 @@
       </div>
     </div>`;
   document.body.appendChild(ftr);
+  /* ---------- Homepage: in-page links (index.html#x) scroll instead of reloading ---------- */
+  const onHome = page === 'home' || location.pathname === '/' || location.pathname === '/index.html';
+  if (onHome) {
+    document.addEventListener('click', (e) => {
+      if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      const a = e.target.closest && e.target.closest('a[href^="index.html#"]');
+      if (!a || (a.target && a.target !== '_self')) return;
+      const id = decodeURIComponent(a.getAttribute('href').slice('index.html#'.length));
+      const el = id && document.getElementById(id);
+      if (!el || el.closest('[hidden]')) return;
+      e.preventDefault();
+      el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+      if (history.pushState) history.pushState(null, '', '#' + id);
+      if (!el.hasAttribute('tabindex')) el.setAttribute('tabindex', '-1');
+      el.focus({ preventScroll: true });
+    });
+  }
+
   /* ---------- Header behaviour ---------- */
   const heroEl = $('.hero');
   const alwaysSolid = document.body.dataset.hdr === 'light';
@@ -338,14 +356,14 @@
   /* ---------- Quick availability (home / CTA bands) → full form ---------- */
   const serviceType = { weddings: 'Destination wedding', prewed: 'Pre-wedding shoot', couples: 'Couple / honeymoon / proposal', corporate: 'Corporate offsite / event' };
   $$('a[href="availability.html"]').forEach(a => a.addEventListener('click', () => {
-    const data = { type: serviceType[page] || '' };
+    const data = { type: serviceType[page] || '', from: location.pathname };
     const length = $('.lengths [aria-pressed="true"] .m');
     if (length) data.length = length.textContent.replace(/\s/g, '').replace('min', '');
     try { sessionStorage.setItem('sv-prefill', JSON.stringify(data)); } catch (_) {}
   }));
   $$('form.quick').forEach(f => f.addEventListener('submit', (e) => {
     e.preventDefault();
-    const data = Object.fromEntries(new FormData(f));
+    const data = Object.assign(Object.fromEntries(new FormData(f)), { from: location.pathname });
     try { sessionStorage.setItem('sv-prefill', JSON.stringify(data)); } catch (_) {}
     location.href = 'availability.html';
   }));
