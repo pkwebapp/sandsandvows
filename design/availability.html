@@ -6,9 +6,9 @@
 <title>Book Us · Sands & Vows</title>
 <meta name="description" content="Check Sands & Vows availability for your Goa wedding, pre-wedding, couple shoot, corporate event or celebration. Reply within one working day.">
 <meta name="sv-enquiry-url" content=""><!-- Enquiry email endpoint (Lambda Function URL). Empty = WhatsApp only. Filled automatically in the Amplify build from amplify_outputs.json, or paste the URL here. -->
-<link rel="canonical" href="https://sandsandvows.com/availability.html"><meta property="og:url" content="https://sandsandvows.com/availability.html"><meta property="og:type" content="website"><meta property="og:site_name" content="Sands & Vows"><meta property="og:title" content="Book Sands & Vows in Goa"><meta property="og:description" content="Tell us your dates and start a conversation on WhatsApp."><meta property="og:image" content="https://sandsandvows.com/assets/img/place-morjim.png"><meta name="twitter:card" content="summary_large_image">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Figtree:wght@400;500;600&display=swap">
+<link rel="canonical" href="https://www.sandsandvows.com/availability.html"><meta property="og:url" content="https://www.sandsandvows.com/availability.html"><meta property="og:type" content="website"><meta property="og:site_name" content="Sands & Vows"><meta property="og:title" content="Book Sands & Vows in Goa"><meta property="og:description" content="Tell us your dates and start a conversation on WhatsApp."><meta property="og:image" content="https://www.sandsandvows.com/assets/img/place-morjim.jpg"><meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="assets/fonts/cormorant-garamond-latin-v21.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/figtree-latin-v9.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/sv.css">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png"><link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <style>
@@ -60,11 +60,12 @@
     .progress li:not([aria-current]) { display: none; }
   }
 </style>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"ContactPage","@id":"https://www.sandsandvows.com/availability.html#main","name":"Check availability and enquire","url":"https://www.sandsandvows.com/availability.html","description":"Check Sands & Vows availability for your Goa wedding, pre-wedding, couple shoot, corporate event or celebration. Reply within one working day.","about":{"@id":"https://www.sandsandvows.com/#business"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.sandsandvows.com/"},{"@type":"ListItem","position":2,"name":"Book us","item":"https://www.sandsandvows.com/availability.html"}]}]}</script>
 </head>
 <body data-page="availability" data-hdr="light">
 <main id="main" class="av">
   <aside class="av-side" aria-label="Your enquiry">
-    <img id="side-img" src="assets/img/place-morjim.png" width="1536" height="1024" alt="">
+    <img id="side-img" src="assets/img/place-morjim.webp" width="1536" height="1024" alt="">
     <div class="in">
       <span class="eyebrow" style="color:#f1e2c8">Book us</span>
       <h1 class="h2" id="side-h">Tell us your dates. <em>We'll hold the light.</em></h1>
@@ -191,7 +192,7 @@
   const startedAt = Date.now();
   let lastSent = '';
   const tWrap = $('#types');
-  tWrap.innerHTML = types.map(t => `<button type="button" class="opt-card" aria-pressed="false" data-v="${t.k}"><span class="media"><img src="assets/img/${t.img}.jpg" alt="" width="${t.w}" height="${t.h}" loading="lazy"></span><span class="tick" aria-hidden="true">✓</span><b>${t.t}</b><span>${t.d}</span></button>`).join('');
+  tWrap.innerHTML = types.map(t => `<button type="button" class="opt-card" aria-pressed="false" data-v="${t.k}"><span class="media"><img src="assets/img/${t.img}.webp" alt="" width="${t.w}" height="${t.h}" loading="lazy"></span><span class="tick" aria-hidden="true">✓</span><b>${t.t}</b><span>${t.d}</span></button>`).join('');
   tWrap.querySelectorAll('.opt-card').forEach(b => b.addEventListener('click', () => {
     tWrap.querySelectorAll('.opt-card').forEach(x => x.setAttribute('aria-pressed', x === b));
     pick(b.dataset.v);
@@ -202,7 +203,7 @@
     type = types.find(t => t.k === k);
     $('#sum-type').textContent = type.t;
     const img = $('#side-img'); img.style.opacity = 0;
-    setTimeout(() => { img.src = 'assets/img/' + type.side + '.jpg'; img.style.opacity = .62; }, 250);
+    setTimeout(() => { img.src = 'assets/img/' + type.side + '.webp'; img.style.opacity = .62; }, 250);
     const s = steps2[k];
     $('#s2-h').innerHTML = s.h; $('#s2-p').textContent = s.p;
     $('#fields').innerHTML = s.f() + venues;
