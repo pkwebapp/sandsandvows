@@ -39,11 +39,11 @@
   hdr.className = 'hdr' + (document.body.dataset.hdr === 'light' ? ' solid' : '');
   hdr.innerHTML = `
     <div class="wrap">
-      <a class="logo" href="index.html" aria-label="Sands & Vows home"><b>Sands <em>&amp;</em> Vows</b><small>Goa · Photography &amp; Films</small></a>
+      <a class="logo" href="index.html"><b>Sands <em>&amp;</em> Vows</b><small>Goa · Photography &amp; Films</small></a>
       <nav class="nav" aria-label="Main">
         ${nav.map(([h, t, k, c]) => `<a href="${h}" class="${c || ''}" ${k === page ? 'aria-current="page"' : ''}>${t}</a>`).join('')}
         <div class="more"><button type="button" aria-expanded="false" aria-haspopup="true">More ${icon.chev}</button>
-          <div class="more-panel" role="menu">${more.map(([h, t, d, img]) => `<a role="menuitem" href="${h}"><img src="assets/img/${img}.jpg" alt="" width="64" height="64" loading="lazy"><div><b>${t}</b><span>${d}</span></div></a>`).join('')}</div>
+          <div class="more-panel" role="menu">${more.map(([h, t, d, img]) => `<a role="menuitem" href="${h}"><img src="assets/img/${img}.webp" alt="" width="64" height="64" loading="lazy"><div><b>${t}</b><span>${d}</span></div></a>`).join('')}</div>
         </div>
       </nav>
       <div class="hdr-cta">
@@ -97,22 +97,22 @@
       <div class="row" style="margin-top:36px;gap:14px 28px"><a class="btn" href="availability.html">Book us <span class="arr">→</span></a><a class="wa" href="${WA}" target="_blank" rel="noopener">${icon.wa} WhatsApp us</a></div>
       <div class="cols">
         <div>
-          <h4>Goa studio</h4>
+          <h2>Goa studio</h2>
           <p style="font-size:15px;line-height:1.7;color:#e5ddd0;max-width:30ch">House No. 1053 A, Morjim,<br>North Goa 403512</p>
           <p style="margin-top:14px;font-size:15px;color:#e5ddd0">Phone / WhatsApp <a class="sel num" href="tel:+918188881165">+91 81888 81165</a></p>
           <p style="font-size:15px;color:#e5ddd0">Email <a class="sel" href="mailto:sandsandvows@pkphotography.in">sandsandvows@pkphotography.in</a></p>
         </div>
-        <div><h4>Experiences</h4><ul>
+        <div><h2>Experiences</h2><ul>
           <li><a href="weddings.html">Destination weddings</a></li><li><a href="pre-wedding.html">Pre-wedding shoots</a></li>
           <li><a href="couples.html">Couples &amp; honeymoons</a></li><li><a href="couples.html">Proposals</a></li>
           <li><a href="corporate.html">Corporate offsites</a></li><li><a href="index.html#experiences">Birthdays &amp; anniversaries</a></li>
           <li><a href="index.html#experiences">Maternity &amp; family</a></li></ul></div>
-        <div><h4>Goa, by area</h4><ul>
+        <div><h2>Goa, by area</h2><ul>
           <li><a href="index.html#goa">Explore the Goa coast</a></li><li><a href="pre-wedding.html#moods">Find your location</a></li><li><a href="availability.html">Plan a route with us</a></li></ul></div>
-        <div><h4>Plan</h4><ul>
+        <div><h2>Plan</h2><ul>
           <li><a href="index.html#pricing">Pricing</a></li><li><a href="index.html#films">Films</a></li><li><a href="privacy.html">Privacy</a></li>
           <li><a href="weddings.html#faq">Questions</a></li><li><a href="index.html#about">About</a></li><li><a href="https://pikconnect.com/" target="_blank" rel="noopener">Client galleries ↗</a></li></ul></div>
-        <div><h4>Start a conversation</h4><ul><li><a href="availability.html">Plan your celebration →</a></li><li><a href="${WA}" target="_blank" rel="noopener">Chat on WhatsApp ↗</a></li></ul></div>
+        <div><h2>Start a conversation</h2><ul><li><a href="availability.html">Plan your celebration →</a></li><li><a href="${WA}" target="_blank" rel="noopener">Chat on WhatsApp ↗</a></li></ul></div>
       </div>
       <div class="base">
         <div class="family">A studio of <a href="https://pkphotography.in/" target="_blank" rel="noopener">PK Photography</a> · Galleries by <a href="https://pikconnect.com/" target="_blank" rel="noopener">PIK Connect</a></div>
