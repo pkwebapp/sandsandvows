@@ -616,7 +616,9 @@ body[data-page="home"] .hero .lead { max-width: 42ch; }
 .not-found-links a { color: rgba(251,246,238,.86); border-bottom: 1px solid rgba(251,246,238,.45); padding-bottom: 5px; font-size: 14px; }
 .not-found-links a:hover { color: var(--shell); border-color: var(--shell); }
 .hero-inner .eyebrow { animation: arrive 900ms var(--ease-out) both; }
-.hero-inner .display { animation: arrive 1100ms 100ms var(--ease-out) both; }
+/* The headline is the page's main content: it rises into place but is never hidden, so it paints at once. */
+.hero-inner .display { animation: rise 1100ms var(--ease-out) both; }
+@keyframes rise { from { transform: translateY(18px); } to { transform: none; } }
 .hero-inner .lead, .hero-inner .ctas { animation: arrive 1100ms 220ms var(--ease-out) both; }
 @keyframes arrive { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
 .btn::before { content: ""; position: absolute; inset: 0; background: rgba(255,255,255,.12); transform: translateX(-105%) skewX(-16deg); transition: transform 650ms var(--ease-out); pointer-events: none; z-index: -1; }
