@@ -108,7 +108,7 @@
           <li><a href="corporate.html">Corporate offsites</a></li><li><a href="index.html#experiences">Birthdays &amp; anniversaries</a></li>
           <li><a href="index.html#experiences">Maternity &amp; family</a></li></ul></div>
         <div><h2>Goa, by area</h2><ul>
-          <li><a href="index.html#goa">Explore the Goa coast</a></li><li><a href="pre-wedding.html#moods">Find your location</a></li><li><a href="availability.html">Plan a route with us</a></li></ul></div>
+          <li><a href="north-goa.html">North Goa</a></li><li><a href="south-goa.html">South Goa</a></li><li><a href="fontainhas-pre-wedding.html">Fontainhas, Panjim</a></li><li><a href="index.html#goa">Explore the Goa coast</a></li><li><a href="availability.html">Plan a route with us</a></li></ul></div>
         <div><h2>Plan</h2><ul>
           <li><a href="index.html#pricing">Pricing</a></li><li><a href="index.html#films">Films</a></li><li><a href="privacy.html">Privacy</a></li>
           <li><a href="weddings.html#faq">Questions</a></li><li><a href="index.html#about">About</a></li><li><a href="https://pikconnect.com/" target="_blank" rel="noopener">Client galleries ↗</a></li></ul></div>
