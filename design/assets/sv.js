@@ -99,6 +99,7 @@
         <div>
           <h2>Goa studio</h2>
           <p style="font-size:15px;line-height:1.7;color:#e5ddd0;max-width:30ch">House No. 1053 A, Morjim,<br>North Goa 403512</p>
+          <p style="margin-top:10px;font-size:15px"><a class="sel" href="https://share.google/KuEa5HoCXTu9RQSAM" target="_blank" rel="noopener">Directions &amp; Google reviews ↗</a></p>
           <p style="margin-top:14px;font-size:15px;color:#e5ddd0">Phone / WhatsApp <a class="sel num" href="tel:+918188881165">+91 81888 81165</a></p>
           <p style="font-size:15px;color:#e5ddd0">Email <a class="sel" href="mailto:sandsandvows@pkphotography.in">sandsandvows@pkphotography.in</a></p>
         </div>
